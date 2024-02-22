@@ -6,13 +6,12 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm run build # Assurez-vous d'avoir un script "build" dans votre package.json
   deploy:
     docker:
       - image: cimg/node:14.17
     steps:
       - checkout
-      - setup_remote_docker # Configure Docker
+      - setup_remote_docker
       - run:
           name: Build Docker image
           command: |
